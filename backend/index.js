@@ -9,7 +9,7 @@ const app=express();
 const cookieParser = require("cookie-parser");
 const {connectMongoDB} = require('./connection');
 
-const path=require("path");
+
 
 
 connectMongoDB(process.env.MONGO_URI)
