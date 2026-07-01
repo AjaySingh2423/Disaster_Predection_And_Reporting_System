@@ -1,0 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    min-height:100%;
+    overflow-x:hidden;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+.app-container{
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+}
+
+.content{
+    flex:1;
+    width:100%;
+    background:linear-gradient(135deg,#49c8a6,#2d6fa8);
+    padding:40px 20px;
+}
+
+/* ===========================
+   Heading
+=========================== */
+
+.content h2{
+    text-align:center;
+    font-size:2.3rem;
+    color:#111;
+    margin-bottom:30px;
+}
+
+/* ===========================
+   Loading Text
+=========================== */
+
+.content p{
+    text-align:center;
+    font-size:18px;
+    color:#111;
+}
+
+/* ===========================
+   Responsive Table
+=========================== */
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:750px;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+th,
+td{
+    padding:15px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+th{
+    background:#1f4e79;
+    color:#fff;
+    font-size:17px;
+}
+
+td{
+    font-size:15px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    flex-wrap:nowrap;
+}
+
+.btn{
+    min-width:90px;
+    padding:8px 14px;
+    border:none;
+    border-radius:6px;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:.3s;
+}
+
+.verify{
+    background:#28a745;
+}
+
+.verify:hover{
+    background:#218838;
+}
+
+.status{
+    background:#0d6efd;
+}
+
+.status:hover{
+    background:#0b5ed7;
+}
+
+.delete{
+    background:#dc3545;
+}
+
+.delete:hover{
+    background:#bb2d3b;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media(max-width:768px){
+
+    .content{
+        padding:30px 15px;
+    }
+
+    .content h2{
+        font-size:2rem;
+    }
+
+    table{
+        min-width:700px;
+    }
+
+    th,
+    td{
+        padding:12px;
+        font-size:14px;
+    }
+
+    .btn{
+        min-width:85px;
+        padding:7px 12px;
+        font-size:13px;
+    }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:480px){
+
+    .content{
+        padding:20px 10px;
+    }
+
+    .content h2{
+        font-size:1.7rem;
+        margin-bottom:20px;
+    }
+
+    table{
+        min-width:680px;
+    }
+
+    th,
+    td{
+        padding:10px;
+        font-size:13px;
+    }
+
+    .action-buttons{
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+        gap:5px;
+        flex-wrap:nowrap;
+    }
+
+    .btn{
+        min-width:75px;
+        padding:6px 10px;
+        font-size:12px;
+    }
+}

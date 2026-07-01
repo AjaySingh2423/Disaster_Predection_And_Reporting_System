@@ -1,0 +1,103 @@
+body{
+    margin: 0;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse; /* ❗ removes double border */
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Header */
+th {
+  background-color: #f5f5f5;
+}
+
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* spacing between buttons */
+}
+
+/* Common button style */
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+}
+
+/* Button colors */
+.verify {
+  background-color: #28a745;
+}
+
+.verify:hover {
+  background-color: #218838;
+}
+
+.status {
+  background-color: #007bff;
+}
+
+.status:hover {
+  background-color: #0069d9;
+}
+
+.delete {
+  background-color: #dc3545;
+}
+
+.delete:hover {
+  background-color: #c82333;
+}
+
+.history-container {
+  padding: 20px;
+}
+
+.history-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Table */
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+/* Header */
+.history-table th {
+  background-color: #2c3e50;
+  color: white;
+  padding: 12px;
+}
+
+/* Cells */
+.history-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Hover */
+.history-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.btn12{
+  margin:4px;
+}
