@@ -5,7 +5,7 @@ import "./TopBar.css";
 function TopBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // ✅ get role from localStorage
+  //get role from localStorage
   const role = localStorage.getItem("role");
 
   const handleLogout = () => {
@@ -25,7 +25,7 @@ function TopBar() {
         <Link to="/analytics" onClick={() => setMenuOpen(false)}>Analytics</Link>
         <Link to="/history" onClick={() => setMenuOpen(false)}>History</Link>
 
-        {/* ✅ show only if admin */}
+        {/*show only if admin */}
         {role === "admin" && (
           <Link to="/admin" onClick={() => setMenuOpen(false)}>Admin</Link>
         )}

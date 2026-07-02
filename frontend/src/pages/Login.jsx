@@ -11,7 +11,7 @@ function Login() {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ function Login() {
     const data = await res.json();
 
     if (data.token) {
-      // ✅ save token
+      //save token
       localStorage.setItem("token", data.token);
        localStorage.setItem("role", data.user.role);
 

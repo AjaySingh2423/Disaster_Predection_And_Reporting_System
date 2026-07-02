@@ -41,7 +41,7 @@ function Analytics() {
 
       complete: (result) => {
 
-        // ✅ Filter Uttarakhand
+        //Filter Uttarakhand
         const uttarakhand = result.data.filter((row) => {
           const state = row.STATE_UT_NAME;
           return (
@@ -55,7 +55,7 @@ function Analytics() {
 
         setData(uttarakhand);
 
-        // ✅ Get districts
+        //Get districts
         const uniqueDistricts = [
           ...new Set(uttarakhand.map((d) => d.DISTRICT?.trim()))
         ];
@@ -69,12 +69,12 @@ function Analytics() {
     });
   }, []);
 
-  // ✅ Selected district data (only 1 row)
+  //Selected district data (only 1 row)
   const selectedData = data.find(
     (d) => d.DISTRICT?.trim() === selectedDistrict
   );
 
-  // ✅ Monthly chart data
+  //Monthly chart data
   const chartData = {
     labels: [
       "Jan", "Feb", "Mar", "Apr", "May", "Jun",

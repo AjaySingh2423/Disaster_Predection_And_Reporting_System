@@ -8,13 +8,13 @@ function History() {
   const [reports, setReports] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // 🔥 Fetch verified reports (both active + inactive)
+  //Fetch verified reports (both active + inactive)
   const fetchHistory = async () => {
     try {
       setLoading(true);
 
       const res = await axios.get(
-        "http://localhost:5000/history" // backend route
+        `${import.meta.env.VITE_API_URL}/history` // backend route
       );
 
       setReports(res.data);

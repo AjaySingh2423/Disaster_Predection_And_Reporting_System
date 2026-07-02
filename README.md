@@ -318,32 +318,6 @@ python app.py
 
 ---
 
-## Screenshots
-
-Add screenshots here.
-
-Example:
-
-```
-screenshots/
-
-login.png
-
-register.png
-
-dashboard.png
-
-map.png
-
-prediction.png
-
-admin.png
-
-history.png
-```
-
----
-
 ## Author
 
 **Ajay Singh**

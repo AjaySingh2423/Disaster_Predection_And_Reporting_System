@@ -17,13 +17,13 @@ function Admin() {
     }
   };
 
-  // 🔥 Fetch all reports
+  //Fetch all reports
   const fetchReports = async () => {
     try {
       setLoading(true);
 
       const res = await axios.get(
-        "http://localhost:5000/admin",   // ✅ FIXED
+        `${import.meta.env.VITE_API_URL}/admin`,   
         config
       );
 
@@ -39,11 +39,11 @@ function Admin() {
     fetchReports();
   }, []);
 
-  // ✅ Delete
+  //Delete
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/${id}`,   // ✅ FIXED
+        `${import.meta.env.VITE_API_URL}/${id}`,   
         config
       );
       fetchReports();
@@ -52,11 +52,11 @@ function Admin() {
     }
   };
 
-  // ✅ Verify / Unverify
+  //Verify / Unverify
   const handleVerify = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/verify/${id}`,   // ✅ FIXED
+        `${import.meta.env.VITE_API_URL}/verify/${id}`,    
         {},
         config
       );
@@ -66,11 +66,11 @@ function Admin() {
     }
   };
 
-  // ✅ Active / Inactive
+  //Active / Inactive
   const handleStatus = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/status/${id}`,   // ✅ FIXED
+        `${import.meta.env.VITE_API_URL}/status/${id}`,   
         {},
         config
       );
