@@ -19,6 +19,13 @@ nav {
   display: flex;
 }
 
+#a1{
+  font-size: 24px;
+  padding: 8px;
+  text-decoration: none;
+  color: white;
+}
+
 nav a {
   font-size: 24px;
   padding: 8px;

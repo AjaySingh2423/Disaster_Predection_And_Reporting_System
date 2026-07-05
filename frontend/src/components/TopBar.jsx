@@ -19,11 +19,11 @@ function TopBar() {
       <p id="p1">Disaster Prediction</p>
 
       <nav className={menuOpen ? "show" : ""}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/map" onClick={() => setMenuOpen(false)}>Map</Link>
-        <Link to="/prediction" onClick={() => setMenuOpen(false)}>Prediction</Link>
-        <Link to="/analytics" onClick={() => setMenuOpen(false)}>Analytics</Link>
-        <Link to="/history" onClick={() => setMenuOpen(false)}>History</Link>
+        <Link to="/" onClick={() => setMenuOpen(false)} className="a1">Home</Link>
+        <Link to="/map" onClick={() => setMenuOpen(false)} className="a1">Map</Link>
+        <Link to="/prediction" onClick={() => setMenuOpen(false)} className="a1">Prediction</Link>
+        <Link to="/analytics" onClick={() => setMenuOpen(false)} className="a1">Analytics</Link>
+        <Link to="/history" onClick={() => setMenuOpen(false)} className="a1">History</Link>
 
         {/*show only if admin */}
         {role === "admin" && (
