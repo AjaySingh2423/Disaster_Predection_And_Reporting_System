@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 
 np.random.seed(42)
 
@@ -17,6 +18,9 @@ data["heavy_rain"] = (data["rainfall_mm"] > 100).astype(int)
 data["flood"] = ((data["rainfall_mm"] > 150) & (data["humidity"] > 85)).astype(int)
 data["cloudburst"] = ((data["rainfall_mm"] > 200) & (data["wind"] > 10)).astype(int)
 
-data.to_csv("disaster_dataset_200.csv", index=False)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "data", "disaster_dataset_200.csv")
+
+data.to_csv(DATA_PATH, index=False)
 
 print("Dataset created")

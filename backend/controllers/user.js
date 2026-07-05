@@ -123,7 +123,7 @@ async function createDisaster(req, res) {
 }
 
 async function getDisasters(req, res) {
-  // 🔥 Only show verified + active (for map)
+  //Only show verified + active (for map)
   const data = await Disaster.find({
     isVerified: true,
     isActive: true,
@@ -176,16 +176,18 @@ const getPrediction = async (req, res) => {
   try {
     const { lat, lng } = req.body;
 
-    // ✅ validation
-    if (!lat || !lng) {
-      return res.status(400).json({ message: "Latitude and Longitude required" });
-    }
+    //validation
+   if (lat == null || lng == null) {
+  return res.status(400).json({
+    message: "Latitude and Longitude required",
+  });
+}
 
    const weatherRes = await axios.get(
   `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`
 );
 
-// ✅ correct path
+//correct path
 const weather = weatherRes.data.current_weather;
 
 if (!weather) {
@@ -193,8 +195,8 @@ if (!weather) {
 }
 
 const input = {
-  temp: weather.temperature,   // ✅ correct
-  wind: weather.windspeed,     // ✅ correct
+  temp: weather.temperature,   
+  wind: weather.windspeed,    
 
   // dummy values (since API doesn't give these)
   humidity: 70,
@@ -202,9 +204,9 @@ const input = {
   rainfall_mm: 0
 };
 
-    // 🤖 Call Python ML API
+    //Call Python ML API
     const mlRes = await axios.post(
-      "http://localhost:8000/predict",
+      `${process.env.ML_API}/predict`,
       input
     );
 

@@ -5,7 +5,12 @@ from sklearn.metrics import accuracy_score
 import joblib
 
 # Load dataset
-df = pd.read_csv("../data/disaster_dataset_200.csv")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "data", "disaster_dataset_200.csv")
+
+df = pd.read_csv(DATA_PATH)
 
 # Features
 X = df[["temp", "humidity", "pressure", "wind", "rainfall_mm"]]
@@ -33,6 +38,8 @@ for target in targets:
     models[target] = model
 
 # Save model
-joblib.dump(models, "model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
+
+joblib.dump(models, MODEL_PATH)
 
 print("Model trained and saved")

@@ -5,7 +5,12 @@ import numpy as np
 app = Flask(__name__)
 
 # Load model
-models = joblib.load("model.pkl")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
+
+models = joblib.load(MODEL_PATH)
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -27,5 +32,7 @@ def predict():
 
     return jsonify(result)
 
+
 if __name__ == "__main__":
-    app.run(port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
