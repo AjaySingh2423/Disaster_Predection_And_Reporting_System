@@ -1,20 +1,19 @@
-import TopBar from '../components/TopBar';
-import BottomBar from '../components/BottomBar';
+import TopBar from "../components/TopBar";
+import BottomBar from "../components/BottomBar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import "../css/History.css";
 
 function History() {
   const [reports, setReports] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  //Fetch verified reports (both active + inactive)
   const fetchHistory = async () => {
     try {
       setLoading(true);
 
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/history` // backend route
+        `${import.meta.env.VITE_API_URL}/history`
       );
 
       setReports(res.data);
@@ -34,43 +33,46 @@ function History() {
       <TopBar />
 
       <div className="content history-container">
-        <h2>Disaster History</h2>
+        <h1 className="history-title">Disaster History</h1>
 
-        {loading && <p>Loading...</p>}
+        {loading && <p className="loading">Loading...</p>}
 
-        <table className="history-table">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Severity</th>
-              <th>Status</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {reports.length === 0 ? (
+        <div className="table-wrapper">
+          <table className="history-table">
+            <thead>
               <tr>
-                <td colSpan="4">No history available</td>
+                <th>Type</th>
+                <th>Severity</th>
+                <th>Status</th>
+                <th>Date</th>
               </tr>
-            ) : (
-              reports.map((r) => (
-                <tr key={r._id}>
-                  <td>{r.type}</td>
-                  <td>{r.severity}</td>
+            </thead>
 
-                  <td>
-                    {r.isActive ? "🟢 Active" : "🔴 Inactive"}
-                  </td>
-
-                  <td>
-                    {new Date(r.createdAt).toLocaleString()}
-                  </td>
+            <tbody>
+              {reports.length === 0 ? (
+                <tr>
+                  <td colSpan="4">No history available</td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ) : (
+                reports.map((r) => (
+                  <tr key={r._id}>
+                    <td>{r.type}</td>
+
+                    <td>{r.severity}</td>
+
+                    <td>
+                      {r.isActive ? "🟢 Active" : "🔴 Inactive"}
+                    </td>
+
+                    <td>
+                      {new Date(r.createdAt).toLocaleString()}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <BottomBar />
