@@ -31,7 +31,7 @@ function TopBar() {
         )}
 
        
-        <a className="logout-btn" onClick={handleLogout}>
+        <a  href="#" className="logout-btn" onClick={handleLogout}>
            Logout
         </a>
       </nav>
