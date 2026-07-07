@@ -19,12 +19,29 @@ nav {
   display: flex;
 }
 
-
-nav a {
-  padding: 8px;
-  font-size: 20px;
+.a1 {
   text-decoration: none;
   color: white;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.a1:hover {
+  color: red;
+}
+
+
+
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 nav a:hover {
