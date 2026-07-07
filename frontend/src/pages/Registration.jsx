@@ -34,7 +34,7 @@ function Register() {
           name: formData.name,
           email: formData.email,
           password: formData.password,
-          role: "admin",
+          role: "user",
         }),
       });
 
