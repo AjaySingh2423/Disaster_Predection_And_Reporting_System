@@ -34,10 +34,10 @@ function MapPage() {
     return position ? <Marker position={position} /> : null;
   }
 
-  // ✅ Fetch disasters (verified + active)
+  //Fetch disasters (verified + active)
   const fetchDisasters = async () => {
     try {
-      const res = await fetch("http://localhost:5000/disaster");
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/disaster`);
       const data = await res.json();
       console.log("Fetched disasters:", data); // DEBUG
       setDisasters(data);
@@ -50,7 +50,7 @@ function MapPage() {
     fetchDisasters();
   }, []);
 
-  // 📤 Submit disaster
+  //Submit disaster
   const handleSubmit = async () => {
     if (!position) {
       alert("Please select location on map");
@@ -71,7 +71,7 @@ function MapPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/disaster", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/disaster`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +88,7 @@ function MapPage() {
       });
 
       const data = await res.json();
-      console.log("SERVER RESPONSE:", data); // 🔥 IMPORTANT DEBUG
+      console.log("SERVER RESPONSE:", data); //IMPORTANT DEBUG
 
       if (!res.ok) {
         alert(data.message || "Error submitting");
@@ -113,7 +113,7 @@ function MapPage() {
 
   return (
     <div>
-      {/* 🗺️ MAP */}
+      {/*MAP */}
       <MapContainer
         center={[30.3165, 78.0322]}
         zoom={10}
@@ -121,10 +121,10 @@ function MapPage() {
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-        {/* 📍 Click marker */}
+        {/*Click marker */}
         <LocationMarker />
 
-        {/* 📍 Existing disasters */}
+        {/*Existing disasters */}
         {disasters.map((d, i) =>
           d.location?.lat && d.location?.lng ? (
             <Marker key={i} position={[d.location.lat, d.location.lng]}>
@@ -138,7 +138,7 @@ function MapPage() {
         )}
       </MapContainer>
 
-      {/* 📝 FORM */}
+      {/*FORM */}
       {position && (
         <div style={{ marginTop: "10px" }}>
           <h3>Report Disaster</h3>
@@ -164,7 +164,7 @@ function MapPage() {
 
           <br /><br />
 
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={handleSubmit} id="btm1">Submit</button>
         </div>
       )}
     </div>
