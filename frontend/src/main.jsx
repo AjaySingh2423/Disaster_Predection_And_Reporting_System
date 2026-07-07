@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ProtectedRoute from "./pages/ProtectedRoute";
+import AdminRoute from "./pages/AdminRoute";
 
 import App from './App.jsx'
 
@@ -16,26 +18,47 @@ import Admin from './pages/Admin.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
+   <BrowserRouter>
+    <Routes>
 
-        {/* Layout (Navbar stays same) */}
-        <Route path="/" element={<App />}>
+        {/* Public Routes */}
 
-          {/* Nested Routes */}
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-          <Route path="map" element={<Map />} />
-          <Route path="prediction" element={<Prediction />} />
-          <Route path="analytics" element={<Analytics />} />
-          <Route path="history" element={<History />} />
-          <Route path="admin" element={<Admin />} />
-         
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+
+        {/* Protected Routes */}
+
+        <Route
+            path="/"
+            element={
+                <ProtectedRoute>
+                    <App />
+                </ProtectedRoute>
+            }
+        >
+
+            <Route index element={<Home />} />
+
+            <Route path="map" element={<Map />} />
+
+            <Route path="prediction" element={<Prediction />} />
+
+            <Route path="analytics" element={<Analytics />} />
+
+            <Route path="history" element={<History />} />
+
+            <Route
+                path="admin"
+                element={
+                    <AdminRoute>
+                        <Admin />
+                    </AdminRoute>
+                }
+            />
 
         </Route>
 
-      </Routes>
-    </BrowserRouter>
+    </Routes>
+</BrowserRouter>
   </StrictMode>,
 )

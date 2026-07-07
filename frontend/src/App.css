@@ -101,3 +101,23 @@ th {
 .btn12{
   margin:4px;
 }
+
+#btm1 {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btm1:hover {
+  background-color: #1d4ed8;
+}
+
+#btm1:active {
+  transform: scale(0.98);
+}

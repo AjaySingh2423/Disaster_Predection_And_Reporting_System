@@ -12,6 +12,7 @@ const {
   changeStatus,
   getHistoryReports,
   getPrediction,
+  handleAdmin,
 } = require("../controllers/user");
 
 const router = express.Router();
@@ -49,6 +50,13 @@ router.put("/status/:id",
   restrictToLoggedInUserOnly,
   restrictToAdminOnly,
   changeStatus
+);
+
+router.get(
+    "/adminAuth",
+    restrictToLoggedInUserOnly,
+    restrictToAdminOnly,
+    handleAdmin
 );
 
 

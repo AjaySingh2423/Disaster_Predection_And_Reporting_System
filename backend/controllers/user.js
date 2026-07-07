@@ -101,6 +101,15 @@ async function handleHome(req, res) {
   res.json({ user: req.user });
 }
 
+async function handleAdmin(req, res) {
+
+    res.status(200).json({
+        message: "Welcome Admin",
+        user: req.user
+    });
+
+}
+
 // ================= USER REPORT =================
 
 async function createDisaster(req, res) {
@@ -234,4 +243,5 @@ module.exports = {
   changeStatus,
   getHistoryReports,
   getPrediction,
+  handleAdmin,
 };
