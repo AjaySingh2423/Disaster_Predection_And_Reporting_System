@@ -49,8 +49,12 @@ nav a:hover {
 }
 
 .logout-btn{
-    margin-right:2px;
-    cursor: pointer;
+  text-decoration: none;
+  color: white;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 /* Hamburger */
