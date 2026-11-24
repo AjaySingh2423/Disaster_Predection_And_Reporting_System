@@ -303,6 +303,15 @@ python app.py
 
 ---
 
+---
+
+## Admin login credentials
+
+email: admin@gmail.com
+password: admin
+
+---
+
 ## Future Enhancements
 
 - SMS Alerts
